@@ -17,7 +17,8 @@ public class MainApp extends Application {
         URL main = getClass().getResource("main.fxml");
         Parent root = FXMLLoader.load(main, strings);
         primaryStage.setTitle(strings.getString("window.title"));
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Scene scene = new Scene(root, 300, 275);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
