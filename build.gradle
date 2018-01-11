@@ -9,17 +9,23 @@ buildscript {
     }
 }
 
+plugins {
+    id "net.ltgt.apt" version "0.13"
+}
+
 apply plugin: 'java'
+apply plugin: "net.ltgt.apt"
+apply plugin: "net.ltgt.apt-idea"
+apply plugin: 'javafx-gradle-plugin'
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-apply plugin: 'javafx-gradle-plugin'
-
 dependencies {
-
+    compile 'com.google.dagger:dagger:2.14.1'
+    apt 'com.google.dagger:dagger-compiler:2.14.1'
 }
 
 jfx {
