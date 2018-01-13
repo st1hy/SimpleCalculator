@@ -26,6 +26,7 @@ repositories {
 dependencies {
     compile 'com.google.dagger:dagger:2.14.1'
     apt 'com.google.dagger:dagger-compiler:2.14.1'
+    compile 'org.mariuszgromada.math:MathParser.org-mXparser:4.1.1'
 }
 
 jfx {

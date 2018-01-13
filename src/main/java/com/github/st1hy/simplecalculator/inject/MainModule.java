@@ -32,7 +32,7 @@ abstract class MainModule {
     }
 
     @Provides @PerApp static Scene provideMainScene(FXMLLoader fxmlLoader) {
-        return new Scene(fxmlLoader.getRoot(), 300, 300);
+        return new Scene(fxmlLoader.getRoot(), 300, 220);
     }
 
 }

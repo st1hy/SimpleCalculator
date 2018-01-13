@@ -5,6 +5,7 @@ import com.github.st1hy.simplecalculator.inject.MainComponent;
 import dagger.Lazy;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javax.inject.Inject;
@@ -29,7 +30,10 @@ public class MainApp extends Application {
         this.stage = primaryStage;
         primaryStage.setTitle(strings.getString("window.title"));
         primaryStage.setScene(mainScene.get());
+        primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
         primaryStage.show();
+        primaryStage.toFront();
     }
 
     @Override public void stop() {
