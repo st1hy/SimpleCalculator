@@ -58,8 +58,11 @@ public class TextController implements Initializable, ChangeListener<String> {
     }
 
     public void oneKeyReleased(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.ENTER) {
+        KeyCode code = keyEvent.getCode();
+        if (code == KeyCode.ENTER) {
             compute();
+        } else if (code == KeyCode.ESCAPE) {
+            clearText();
         }
     }
 

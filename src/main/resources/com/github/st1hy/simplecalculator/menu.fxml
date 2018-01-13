@@ -12,10 +12,10 @@
             <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleClose" text="%menu.file.close"/>
         </Menu>
         <Menu mnemonicParsing="false" text="%menu.edit">
-            <MenuItem mnemonicParsing="false" text="%menu.edit.delete"/>
+            <MenuItem mnemonicParsing="false" text="%menu.edit.delete" onAction="#handleDelete"/>
         </Menu>
         <Menu mnemonicParsing="false" text="%menu.help">
-            <MenuItem mnemonicParsing="false" text="%menu.help.about"/>
+            <MenuItem mnemonicParsing="false" text="%menu.help.about" onAction="#handleAbout"/>
         </Menu>
     </MenuBar>
 </AnchorPane>

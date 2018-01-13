@@ -18,9 +18,28 @@ abstract class MainModule {
         return ResourceBundle.getBundle("strings", control);
     }
 
-    @Provides @PerApp static FXMLLoader provideFXMLLoader(ResourceBundle resourceBundle,
-                                                          ControllerFactory controllerFactory) {
-        URL main = MainApp.class.getResource("main.fxml");
+    @Provides @PerApp static FXMLLoader provideMainFXMLLoader(ResourceBundle resourceBundle,
+                                                              ControllerFactory controllerFactory) {
+        return newFXMLLoader("main.fxml", resourceBundle, controllerFactory);
+    }
+
+    @Provides @About static FXMLLoader provideAboutFXMLLoader(ResourceBundle resourceBundle,
+                                                              ControllerFactory controllerFactory) {
+        return newFXMLLoader("about.fxml", resourceBundle, controllerFactory);
+    }
+
+    @Provides @PerApp static Scene provideMainScene(FXMLLoader fxmlLoader) {
+        return new Scene(fxmlLoader.getRoot(), 300, 220);
+    }
+
+    @Provides @About static Scene provideAboutScene(@About FXMLLoader aboutLoader) {
+        return new Scene(aboutLoader.getRoot());
+    }
+
+    private static FXMLLoader newFXMLLoader(String fxml,
+                                            ResourceBundle resourceBundle,
+                                            ControllerFactory controllerFactory) {
+        URL main = MainApp.class.getResource(fxml);
         FXMLLoader fxmlLoader = new FXMLLoader(main, resourceBundle);
         fxmlLoader.setControllerFactory(controllerFactory);
         try {
@@ -29,10 +48,6 @@ abstract class MainModule {
             throw new RuntimeException(e);
         }
         return fxmlLoader;
-    }
-
-    @Provides @PerApp static Scene provideMainScene(FXMLLoader fxmlLoader) {
-        return new Scene(fxmlLoader.getRoot(), 300, 220);
     }
 
 }
